@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTracking.Mvc", "MoneyTracking.Mvc\MoneyTracking.Mvc.csproj", "{86EBE7A8-4E7B-4909-B4F5-E12CE3FC4D46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{4F54C8A8-3F7E-48E7-802A-B577B183806F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{ED7A06E7-D5A8-48D8-984D-BEA58BE3C1D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86EBE7A8-4E7B-4909-B4F5-E12CE3FC4D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86EBE7A8-4E7B-4909-B4F5-E12CE3FC4D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86EBE7A8-4E7B-4909-B4F5-E12CE3FC4D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86EBE7A8-4E7B-4909-B4F5-E12CE3FC4D46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F54C8A8-3F7E-48E7-802A-B577B183806F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F54C8A8-3F7E-48E7-802A-B577B183806F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F54C8A8-3F7E-48E7-802A-B577B183806F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F54C8A8-3F7E-48E7-802A-B577B183806F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7A06E7-D5A8-48D8-984D-BEA58BE3C1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7A06E7-D5A8-48D8-984D-BEA58BE3C1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7A06E7-D5A8-48D8-984D-BEA58BE3C1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7A06E7-D5A8-48D8-984D-BEA58BE3C1D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>aspnet-MoneyTracking-FA1C3B62-46B1-40B1-AAD1-6BCDB5AE2EC7</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0"/>
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+      <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj" />
+    </ItemGroup>
+
+</Project>

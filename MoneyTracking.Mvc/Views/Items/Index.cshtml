@@ -1,0 +1,15 @@
+﻿@model List<DataLayer.Entity.Item>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@foreach (var item in Model)
+{
+    <h1>@item.Name</h1>
+    <h2>@item.Date</h2>
+    <h2>@item.Usefull</h2>
+    <h2>@item.Price</h2>
+    <h2>@item.Tags</h2>
+}
