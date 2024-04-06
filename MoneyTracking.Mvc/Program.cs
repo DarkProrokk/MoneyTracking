@@ -8,7 +8,7 @@ using ServiceLayer.UserService;
 using ServiceLayer.UserService.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
-const string connection = @"Server=127.0.0.1;Port=3306;Database=MoneyTracking.Mvc;Uid=root;Pwd=123;";
+const string connection = @"Server=127.0.0.1;Port=3306;Database=moneytracking;Uid=root;Pwd=123;";
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
