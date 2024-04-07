@@ -1,15 +1,63 @@
-﻿@model List<DataLayer.Entity.Item>
+@model IEnumerable<ServiceLayer.ItemsService.ItemsListDto>
 
-@{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
-}
+<div class="container">
+  <div class="row">
+    @foreach (var item in Model)
+    {
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <!-- Name -->
+            <h5 class="card-title">@item.Name</h5>
 
-@foreach (var item in Model)
-{
-    <h1>@item.Name</h1>
-    <h2>@item.Date</h2>
-    <h2>@item.Usefull</h2>
-    <h2>@item.Price</h2>
-    <h2>@item.Tags</h2>
-}
+            <!-- Price -->
+            <h6 class="card-subtitle mb-2 text-muted">Price: @item.Price.ToString("C")</h6>
+
+            <!-- PossiblePrice -->
+            @if (item.PossiblePrice.HasValue)
+            {
+              <h6 class="card-subtitle mb-2">
+                Possible Price: @item.PossiblePrice.Value.ToString("C")
+              </h6>
+            }
+            @if (item.PriceDelta.HasValue)
+            {
+              <h6 class="card-subtitle mb-2" style="color: @(item.PriceDelta < 0 ? "red" : "green");">
+                Price Delta: @item.PriceDelta.Value.ToString("C")
+              </h6>
+            }
+
+            <!-- Useful -->
+            <p class="card-text">Useful: @(item.Usefull ? "Yes" : "No")</p>
+
+            <!-- PossibleUseful -->
+            @if (item.PossibleUseful.HasValue)
+            {
+              <p class="card-text">Possibly Useful: @(item.PossibleUseful.Value ? "Yes" : "No")</p>
+            }
+
+            <!-- Description -->
+            @if (!string.IsNullOrEmpty(item.Description))
+            {
+              <p class="card-text">@item.Description</p>
+            }
+
+            <!-- Date -->
+            <p class="card-text">Date: @item.Date.ToShortDateString()</p>
+
+            <!-- Tags -->
+            @if (item.Tags != null && item.Tags.Any())
+            {
+              <ul class="list-group list-group-flush">
+                @foreach (var tag in item.Tags)
+                {
+                  <li class="list-group-item">@tag.Name</li>
+                }
+              </ul>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,10 +1,8 @@
-﻿
-using System.Security.Claims;
+﻿using MoneyTracking.Models;
 using DataLayer.Context;
+using DataLayer.Entity;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLayer.DAL.Repositories;
-using ServiceLayer.UserService;
-using DataLayer.Entity;
 using ServiceLayer.ItemsService.QueryObjects;
 using ServiceLayer.UserService.Interfaces;
 
@@ -12,14 +10,30 @@ namespace MoneyTracking.Controllers;
 
 public class ItemsController(ItemsRepository itemsRepository, TrackingContext db, UserRepository userRepository, IUserService userService): Controller
 {
-   public IActionResult Index()
-   {
-      var items = db.Items.MapItemToDto();
-      return View();
-   }
-
+   [HttpGet]
    public IActionResult CreateItem()
    {
-      return View();
+      
+      var viewModel = new CreateItemViewModel
+      {
+         Item = new Item
+         {
+            UserId = userService.GetUserId()
+         },
+         Tags = db.Tags
+      };
+      
+      return View(viewModel);
+   }
+
+   public IActionResult Index()
+   {
+      
+      return View(db.Items.MapItemToDto(userService));
+   }
+
+   public IActionResult Create(CreateItemViewModel model)
+   {
+      return Redirect($"Home/Index/");
    }
 }

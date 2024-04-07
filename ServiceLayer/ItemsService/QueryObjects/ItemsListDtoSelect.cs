@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using DataLayer.Entity;
+using ServiceLayer.UserService.Interfaces;
 
 namespace ServiceLayer.ItemsService.QueryObjects;
 
 public static class ItemsListDtoSelect
 {
-    public static IQueryable<ItemsListDto> MapItemToDto(this IQueryable<Item> items)
+    public static IQueryable<ItemsListDto> MapItemToDto(this IQueryable<Item> items, IUserService userService)
     {
         return items.Select(item => new ItemsListDto
         {
@@ -14,13 +15,15 @@ public static class ItemsListDtoSelect
             Name = item.Name,
             Price = item.Price,
             PossiblePrice = item.PossiblePrice,
+            PossibleUseful = item.PossibleUsefull,
             PriceDelta = item.PossiblePrice == null
                 ? 0
-                : (item.Price - item.PossiblePrice),
+                : (item.PossiblePrice - item.Price),
             Usefull = item.Usefull,
             Description = item.Description,
             Date = item.Date,
-            Tags = item.Tags
-        });
+            Tags = item.Tags,
+            User = item.User.Id
+        }).Where(item => item.User == userService.GetUserId());
     }
 }
