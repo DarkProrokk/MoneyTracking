@@ -1,14 +1,17 @@
-﻿using DataLayer.Entity;
+﻿using DataLayer.Context;
+using DataLayer.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ServiceLayer.UserService;
 
 namespace MoneyTracking.Controllers;
 
-public class UserController(UserManager<User> _userManager): Controller
+public class UserController(UserService userService, TrackingContext context): Controller
 {
     public IActionResult Index()
     {
-        List<User> users = _userManager.Users.ToList();
+        var id =  userService.GetUserId();
+        var user = context.Users.FirstOrDefault(user => user.Id == id);
         return View();
     }
 }
