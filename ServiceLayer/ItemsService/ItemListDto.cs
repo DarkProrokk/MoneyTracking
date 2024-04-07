@@ -13,6 +13,7 @@ public class ItemsListDto
     
     public decimal? PriceDelta { get; set; }
     
+    public bool? PossibleUseful { get; set; }
     public bool Usefull { get; set; }
     
     public string? Description { get; set; }
@@ -20,4 +21,6 @@ public class ItemsListDto
     public DateTime Date { get; set; }
     
     public ICollection<Tag>? Tags { get; set; }
+    
+    public string User { get; set; }
 }
