@@ -1,0 +1,63 @@
+@model MoneyTracking.Models.CreateItemViewModel
+@{
+    ViewBag.Title = "Добавить Расход";
+}
+
+<h2>Добавить Расход</h2>
+
+<form asp-action="Create" asp-controller="Items" method="post">
+    <div class="form-group">
+        <label asp-for="Item.Name">Название</label>
+        <input asp-for="Item.Name" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Item.Price">Цена</label>
+        <input asp-for="Item.Price" type="number" step="0.01" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Item.PossiblePrice">Возможная Цена</label>
+        <input asp-for="Item.PossiblePrice" type="number" step="0.01" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Item.Usefull">Полезность</label>
+        <select asp-for="Item.Usefull" class="form-control">
+            <option value="true">Полезно</option>
+            <option value="false">Не полезно</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Item.PossibleUsefull">Возможная Полезность</label>
+        <select asp-for="Item.PossibleUsefull" class="form-control">
+            <option value="">Выберите...</option>
+            <option value="true">Полезно</option>
+            <option value="false">Не полезно</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Item.Description">Описание</label>
+        <textarea asp-for="Item.Description" class="form-control"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Item.Date">Дата</label>
+        <input asp-for="Item.Date" type="date" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label>Теги</label>
+        @foreach (var tag in Model.Tags)
+        {
+            <div class="form-check">
+                <input asp-for="Item.Tags" type="number" value="@tag.TagId" class="form-check-input" />
+                <label class="form-check-label">@tag.Name</label>
+            </div>
+        }
+    </div>
+    
+    <input type="submit" value="Добавить" class="btn btn-primary" />
+</form>
